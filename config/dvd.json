@@ -1,0 +1,49 @@
+{
+    "wandb": {
+        "name": "olvit",
+        "group": "dvd",
+        "tags": [],
+        "project": "olvit"
+
+    },
+    "model": {
+        "model_type": "discriminative",
+        "n_heads": 6,
+        "v_emb_dim": 36,
+        "dim_feedforward": 200,
+        "dropout_p": 0.1,
+        "fc_dim": 512,
+        "sample_rate_video": 20,
+        "n_transf_layers": 4,
+        "use_pretrained_lm": true,
+        "projection_as_in_aloe": true,
+        "pretrained_lm_name": "distilroberta-base",
+        "dataset": "dvd"
+    },
+    "extended_model": {
+        "hist_len_for_state_gen": 7,
+        "number_of_relevant_emb": 2,
+        "num_layers_v_state": 2,
+        "num_layers_d_state": 2,
+        "combiner_option": "OptionA",
+        "state_tracker_type": "Transformer",
+        "use_v_state": true,
+        "use_d_state": true,
+        "n_heads_combiner_transformer": 8,
+        "n_heads_state_tracker": 6,
+        "dim_feedforward_v_transformer": 140,
+        "dim_feedforward_d_transformer": 60
+    },
+    "training": {
+        "lr": 1e-4,
+        "warmup_steps": 4000,
+        "total_steps": 200000,
+        "batch_size": 128,
+        "seed": 12345,
+        "epochs": 1000 
+    },
+    "checkpoint": {
+        "checkpoint_folder": "checkpoints/dvd",
+        "checkpoint_file_name": "olvit"
+    }
+}

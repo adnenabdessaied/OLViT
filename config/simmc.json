@@ -1,0 +1,61 @@
+{
+    "wandb": {
+        "name": "olvit",
+        "group": "simmc2",
+        "tags": [],
+        "project": "olvit"
+
+    },
+    "model": {
+        "model_type": "generative",
+        "dataset": "simmc2",
+        "feature_type": "object_text_features",
+        "object_feature_generator_dim": 50,
+        "n_object_feature_generator_layers": 2,        
+        "n_heads": 6,
+        "v_emb_dim": 516,
+        "emb_dim": 216,
+        "dim_feedforward": 200,
+        "dropout_p": 0.1,
+        "fc_dim": 512,
+        "sample_rate_video": 1,
+        "n_encoder_layers": 4,
+        "n_decoder_layers": 4,
+        "use_pretrained_lm": true,
+        "vocab_size": 50265,
+        "projection_as_in_aloe": false,
+        "pretrained_lm_name": "distilroberta-base"
+    },
+    "extended_model": {
+        "hist_len_for_state_gen": 3,
+        "number_of_relevant_emb": 2,
+        "num_layers_v_state": 2,
+        "num_layers_d_state": 2,
+        "combiner_option": "OptionA",
+        "state_tracker_type": "Transformer",
+        "use_v_state": true,
+        "use_d_state": true,
+        "n_heads_combiner_transformer": 8,
+        "n_heads_state_tracker": 6,
+        "dim_feedforward_v_transformer": 140,
+        "dim_feedforward_d_transformer": 60
+    },
+    "training": {
+        "lr": 1e-4,
+        "warmup_steps": 4000,
+        "total_steps": 200000,
+        "batch_size": 8,
+        "seed": 12345,
+        "epochs": 1000 
+    },
+    "datamodule": {
+        "fea_dir": "data/simmc/visual_features_resnet50_simmc2.1.pt",
+        "data_dir": "data/simmc/dialogs"
+    }, 
+    "checkpoint": {
+        "checkpoint_folder": "checkpoints/simmc/",
+        "checkpoint_file_name": "olvit",
+        "output_path": "output/simmc/",
+        "checkpoint_path": "TO_BE_DETERMINED"
+    }
+}

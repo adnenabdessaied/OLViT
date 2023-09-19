@@ -1,0 +1,43 @@
+{
+    "wandb": {
+        "entity": "TO_BE_DEFINED",
+        "name": "",
+        "group": "",
+        "tags": [],
+        "project": "olvit"
+
+    },
+    "model": {
+        "model_type": "base_model",
+        "feature_type": "none", 
+        "freeze_roberta": true,
+        "v_emb_dim": 16,
+        "dim_feedforward": 400,
+        "n_heads": 9,
+        "fc_dim": 128,
+        "dropout_p": 0.1,
+        "sample_rate_video": 10,
+        "n_encoder_layers": 6,
+        "add_choices_as_context": false,
+        "use_pretrained_lm": false,
+        "projection_as_in_aloe": false,
+        "pretrained_lm_name": ""
+    },
+    "training": {
+        "lr": 1e-4,
+        "total_steps": 200000,
+        "warmup_steps": 4000,
+        "accumulate_grad_batches": 1,
+        "batch_size": 128,
+        "epochs": 40, 
+        "seed": null
+    },
+    "datamodule": {
+        "fea_dir": "data/dvd/monet_feats/",
+        "data_dir": "data/dvd/dialogs/"
+    }, 
+    "checkpoint": {
+        "checkpoint_folder": "checkpoints/",
+        "checkpoint_file_name": "olvit"
+    }
+}

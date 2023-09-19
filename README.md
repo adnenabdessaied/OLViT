@@ -5,7 +5,7 @@
 
 **Submitted to ARR August 2023** <br>
 
-<img src="misc/teaser.png" width="80%" align="middle"><br><br>
+<img src="misc/teaser.png" width="100%" align="middle"><br><br>
 
 </div>
 

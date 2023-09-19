@@ -1,9 +1,9 @@
 <div align="center">
-<h1> OLViT: Multi-Modal Video Dialog State Tracking in the Wild </h1>
+<h1> OLViT: Multi-Modal State Tracking via Attention-Based Embeddings for Video-Grounded Dialog  </h1>
     
 **Anonymous** :ghost: <br>
 
-**Submitted to ARR August 2023** <br>
+**Submitted to LREC-COLING 2024** <br>
 
 <img src="misc/teaser.png" width="100%" align="middle"><br><br>
 

@@ -1,11 +1,11 @@
 <div align="center">
-<h1> OLViT <img src="misc/teaser.pdf" width="3%" align="bottom">: Multi-Modal Video Dialog State Tracking in the Wild </h1>
+<h1> OLViT: Multi-Modal Video Dialog State Tracking in the Wild </h1>
     
 **Anonymous** :ghost: <br>
 
 **Submitted to ARR August 2023** <br>
 
-<img src="misc/overview_git.png" width="100%" align="middle"><br><br>
+<img src="misc/teaser.png" width="80%" align="middle"><br><br>
 
 </div>
 

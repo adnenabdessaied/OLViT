@@ -71,10 +71,7 @@ CUDA_VISIBLE_DEVICES=0 python test.py --ckpt_path <PATH_TO_TRAINED_MODEL> --cfg_
 # Results
 Training using the default config and a similar hardware setup as ours will result in the following performance
 
-| Model    | BLUE-1 | BLUE-2 | BLUE-3 | BLUE-4 | METEOR | ROUGE-L | CIDEr |
-|:--------:|:------:|:------:|:------:|:------:|:------:|:-------:|:-----:| 
-| [Prev. SOTA][6] | 77.8 | 65.4 | 54.9 | 46.8 | 30.8 | 61.9 | 1.336 | 
-| MST_MIXER | **78.4** | **65.8** | **55.4** | **46.8** | **31.2** | **62.0** | **1.366**| 
+##DVD
 
 
 ## AVSD-DSTC8

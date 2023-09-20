@@ -13,6 +13,7 @@
 * [Setup and Dependencies](#Setup-and-Dependencies)
 * [Download Data](#Download-Data)
 * [Training](#Training)
+* [Testing](#Testing)
 * [Results](#Results)
 * [Acknowledgements](#Acknowledgements)
 
@@ -21,70 +22,54 @@ We implemented our model using Python 3.7, PyTorch 1.11.0 (CUDA 11.3, CuDNN 8.3.
 1. Install [git lfs][1] on your system
 2. Clone our repository to download a checpint of our best model and our code
    ```shell
-       git lfs install
-       git clone this_repo.git
+   git lfs install
+   git clone this_repo.git
    ```
 3. Create a conda environment and install dependencies
    ```shell
-       conda create -n olvit python=3.7
-       conda activate olvit
-       conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
-       pip install pytorch-lightning==1.6.3 
-       pip install transformers==4.19.2
-       pip install torchtext==0.12.0
-       pip install wandb nltk pandas 
+   conda create -n olvit python=3.7
+   conda activate olvit
+   conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
+   pip install pytorch-lightning==1.6.3 
+   pip install transformers==4.19.2
+   pip install torchtext==0.12.0
+   pip install wandb nltk pandas 
     ```
 # Download Data
 1. [DVD][2] and [SIMMC 2.1][3] data are included in this repository and will be downloaded using git lfs  
 2. Setup the data by executing
    ```shell
-       chmod u+x setup_data.sh
-       ./setup_data.sh
+   chmod u+x setup_data.sh
+   ./setup_data.sh
     ```
 3. This will unpack all the data necessary in ```data/dvd/``` and ```data/simmc/``` 
 
 # Training
 We trained our model on 3 Nvidia Tesla V100-32GB GPUs. The default hyperparameters need to be adjusted if your setup differs from ours.
-
-
-
+## DVD
+1. Adjust the config file for DVD according to your hardware specifications in ```config/dvd.json```
+2. Execute
 ```shell
-    CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python main.py \
-         --mode train \ 
-         --tag unique_training_tag \
-         --wandb_mode online \
-         --wandb_project your_wandb_project_name
+CUDA_VISIBLE_DEVICES=0,1,2 python train.py --cfg_path config/dvd.json
 ```
-To deactivate [wandb][4] logging, use ```--wandb_mode disabled```.
-On a similar setup to ours, this will take roughly 20h to complete.
+3. Checkpoints will be saved in ```checkpoints/dvd/```
 
-# Response Generation
-The inference runtime of our model takes circa 2s to generate one response. Since each of AVSD-DSTC7 and AVSD-DSTC8 have 1,710 questions each, inference using a single model will take almost 1h. Thus, we provide a shell script that runs 16 models on parallel (2x model/GPU) to reduce the runtime to only 6mn.
-## AVSD-DSTC7
-1. Set ```dstc=7``` in the ```.conf``` file of your trained networks. in The default setting, can find this under ```logs/unique_training_tag/code/config/mst_mixer.conf``` 
-2. Generate the responses
+## SIMMC 2.1
+1. Adjust the config file for SIMMC 2.1 according to your hardware specifications in ```config/simmc.json```
+2. Execute
 ```shell
-./generate_parallel_avsd.sh mst_mixer/mixer results_avsd_dstc7 logs/unique_training_tag generate 7
+CUDA_VISIBLE_DEVICES=0,1,2 python train.py --cfg_path config/simmc.json
 ```
-3. All responses will be saved in ```output/dstc7/```
-## AVSD-DSTC8
-1. Set ```dstc=8``` in the ```.conf``` file of your trained networks. in The default setting, can find this under ```logs/unique_training_tag/code/config/mst_mixer.conf``` 
-2. Generate the responses
+3. Checkpoints will be saved in ```checkpoints/simmc/```
+
+# Testing
+1. Execute
 ```shell
-./generate_parallel_avsd.sh mst_mixer/mixer results_avsd_dstc8 logs/unique_training_tag generate 8
+CUDA_VISIBLE_DEVICES=0 python test.py --ckpt_path <PATH_TO_TRAINED_MODEL> --cfg_path <PATH_TO_CONFIG_OF_TRAINED_MODEL>
 ```
-3. All responses will be saved in ```output/dstc8/```
 
 # Results
-To evaluate our best model on 
-## AVSD-DSTC7
-1. Set ```dstc=7``` in the ```ckpt/code/mst_mixer.conf```
-2. run
-```shell
-   ./generate_parallel_avsd.sh mst_mixer/mixer results_avsd_dstc7_ckpt ckpt/ generate 7
-```
-3. The responses will be saved in ```output/dstc7/```
-4. Executing the [eval_tool][5] of AVSD-DSTC7 using the generated repsonses will output the following metrics
+Training using the default config and a similar hardware setup as ours will result in the following performance
 
 | Model    | BLUE-1 | BLUE-2 | BLUE-3 | BLUE-4 | METEOR | ROUGE-L | CIDEr |
 |:--------:|:------:|:------:|:------:|:------:|:------:|:-------:|:-----:| 

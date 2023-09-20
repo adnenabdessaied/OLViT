@@ -4,7 +4,7 @@
 **Anonymous** :ghost: <br>
 
 **Submitted to LREC-COLING 2024** <br>
-
+----------------
 <img src="misc/teaser.png" width="40%" align="middle"><br><br>
 
 </div>

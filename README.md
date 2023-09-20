@@ -12,14 +12,12 @@
 # Table of Contents
 * [Setup and Dependencies](#Setup-and-Dependencies)
 * [Download Data](#Download-Data)
-* [Pre-trained Checkpoint](#Pre-trained-Checkpoint)
 * [Training](#Training)
-* [Response Generation](#Response-Generation)
 * [Results](#Results)
 * [Acknowledgements](#Acknowledgements)
 
 # Setup and Dependencies
-We implemented our model using Python 3.7 and PyTorch 1.12.0 (CUDA 11.3, CuDNN 8.3.2). We recommend to setup a virtual environment using Anaconda. <br>
+We implemented our model using Python 3.7, PyTorch 1.11.0 (CUDA 11.3, CuDNN 8.3.2) and PyTorch Lightning. We recommend to setup a virtual environment using Anaconda. <br>
 1. Install [git lfs][1] on your system
 2. Clone our repository to download a checpint of our best model and our code
    ```shell
@@ -28,24 +26,28 @@ We implemented our model using Python 3.7 and PyTorch 1.12.0 (CUDA 11.3, CuDNN 8
    ```
 3. Create a conda environment and install dependencies
    ```shell
-       conda create -n mst_mixer python=3.7
-       conda activate mst_mixer
-       conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.3 -c pytorch
-       conda install pyg -c pyg
-       conda install pytorch-scatter -c pyg  # pytorch >= 1.8.0
-       conda install -c huggingface transformers
-       pip intall wandb glog pyhocon 
+       conda create -n olvit python=3.7
+       conda activate olvit
+       conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
+       pip install pytorch-lightning==1.6.3 
+       pip install transformers==4.19.2
+       pip install torchtext==0.12.0
+       pip install wandb nltk pandas 
     ```
 # Download Data
-1. Download the [AVSD-DSTC7][2] and [AVSD-DSTC8][3] data
-2. Place the raw json files in ```raw_data/``` and the features in ```features/```
-3. Prepeocess and save the input features for faster training as indicated in ```custom_datasets/```
-
-# Pre-trained Checkpoint
-We provide a checkpoint of our best model in the ```ckpt/``` folder.
+1. [DVD][2] and [SIMMC 2.1][3] data are included in this repository and will be downloaded using git lfs  
+2. Setup the data by executing
+   ```shell
+       chmod u+x setup_data.sh
+       ./setup_data.sh
+    ```
+3. This will unpack all the data necessary in ```data/dvd/``` and ```data/simmc/``` 
 
 # Training
-We trained our model on 8 Nvidia Tesla V100-32GB GPUs. The default hyperparameters in ```config/mst_mixer.conf``` need to be adjusted if your setup differs from ours.
+We trained our model on 3 Nvidia Tesla V100-32GB GPUs. The default hyperparameters need to be adjusted if your setup differs from ours.
+
+
+
 ```shell
     CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python main.py \
          --mode train \ 

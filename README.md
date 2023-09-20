@@ -71,10 +71,10 @@ CUDA_VISIBLE_DEVICES=0 python test.py --ckpt_path <PATH_TO_TRAINED_MODEL> --cfg_
 # Results
 Training using the default config and a similar hardware setup as ours will result in the following performance
 
-## DVD [Accuracy]
+## DVD
 <img src="misc/results_dvd.png" width="100%" align="middle"><br><br>
 
-## SIMMC 2.1 [BLEU-4]
+## SIMMC 2.1
 <img src="misc/results_simmc.png" width="50%" align="middle"><br><br>
 
 # Acknowledgements

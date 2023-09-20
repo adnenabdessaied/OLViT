@@ -71,34 +71,16 @@ CUDA_VISIBLE_DEVICES=0 python test.py --ckpt_path <PATH_TO_TRAINED_MODEL> --cfg_
 # Results
 Training using the default config and a similar hardware setup as ours will result in the following performance
 
-##DVD
+## DVD [Accuracy]
+<img src="misc/results_dvd.png" width="100%" align="middle"><br><br>
 
-
-## AVSD-DSTC8
-1. Set ```dstc=8``` in the ```ckpt/code/mst_mixer.conf```
-2. run
-```shell
-./generate_parallel_avsd.sh mst_mixer/mixer results_avsd_dstc7_ckpt ckpt/ generate 8
-```
-3. The responses will be saved in ```output/dstc8/```
-4. Executing the [eval_tool][7] of AVSD-DSTC8 using the generated repsonses will output the following metrics
-
-| Model    | BLUE-1 | BLUE-2 | BLUE-3 | BLUE-4 | METEOR | ROUGE-L | CIDEr |
-|:--------:|:------:|:------:|:------:|:------:|:------:|:-------:|:-----:| 
-| [Prev. SOTA][6] | 76.4 | 64.1 | 53.8 | 45.5 | 30.1 | 61.0 | 1.304 | 
-| MST_MIXER | **77.5** | **65.7** | **55.6** | **47.0** | **30.5** | **61.8** | **1.331**|
+## SIMMC 2.1 [BLEU-4]
+<img src="misc/results_simmc.png" width="50%" align="middle"><br><br>
 
 # Acknowledgements
-We thank the authors of [RLM][8] for providing their [code][9] that greatly influenced this work. 
-
+Our work relied on the codebases of [DVD][2] and [SIMMC][3]. Thanks to the authors for sharing their code.
 
 
 [1]: https://git-lfs.com/
-[2]: https://github.com/hudaAlamri/DSTC7-Audio-Visual-Scene-Aware-Dialog-AVSD-Challenge
-[3]: https://github.com/dialogtekgeek/DSTC8-AVSD_official
-[4]: https://wandb.ai/site
-[5]: https://drive.google.com/drive/folders/1SlZTySJAk_2tiMG5F8ivxCfOl_OWwd_Q
-[6]: https://aclanthology.org/2022.emnlp-main.280/
-[7]: https://drive.google.com/file/d/1EKfPtrNBQ5ciKRl6XggImweGRP84XuPi/view?usp=sharing
-[8]: https://arxiv.org/abs/2002.00163
-[9]: https://github.com/ictnlp/DSTC8-AVSD
+[2]: https://github.com/facebookresearch/DVDialogues/
+[3]: https://github.com/facebookresearch/simmc2/

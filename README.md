@@ -1,5 +1,5 @@
 <div align="center">
-<h1> OLViT: Multi-Modal State Tracking via Attention-Based Embeddings for Video-Grounded Dialog  </h1>
+<h1> $\mathbb{OLV}\mathrm{i}\mathbb{T}$: Multi-Modal State Tracking via Attention-Based Embeddings for Video-Grounded Dialog  </h1>
     
 **Anonymous** :ghost: <br>
 

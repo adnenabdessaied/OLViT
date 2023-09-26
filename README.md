@@ -1,9 +1,9 @@
 <div align="center">
 <h1> OLViT: Multi-Modal State Tracking via Attention-Based Embeddings for Video-Grounded Dialog  </h1>
     
-**Anonymous** :ghost: <br>
+**[Adnen Abdessaied][4], &nbsp; [Lei Shi][5], &nbsp; [Andreas Bulling][6]** <br> <br>
 
-**Submitted to LREC-COLING 2024** <br>
+**Submitted to COLING 2024** <br>
 ----------------
 <img src="misc/teaser.png" width="40%" align="middle"><br><br>
 
@@ -84,3 +84,6 @@ Our work relied on the codebases of [DVD][2] and [SIMMC][3]. Thanks to the autho
 [1]: https://git-lfs.com/
 [2]: https://github.com/facebookresearch/DVDialogues/
 [3]: https://github.com/facebookresearch/simmc2/
+[4]: https://adnenabdessaied.de
+[5]: https://www.perceptualui.org/people/shi/
+[6]: https://www.perceptualui.org/people/bulling/

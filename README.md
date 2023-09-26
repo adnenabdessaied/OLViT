@@ -3,7 +3,7 @@
     
 **[Adnen Abdessaied][4], &nbsp; [Manuel von Hochmeister][5], &nbsp; [Andreas Bulling][6]** <br> <br>
 
-**Submitted to COLING 2024**, Turin, Italy <br>
+**Submitted to COLING 2024**, Turin, Italy <img src="misc/italy.png" width="3%" align="center"> <br>
 ----------------
 <img src="misc/teaser.png" width="40%" align="middle"><br><br>
 

@@ -1,11 +1,9 @@
 <div align="center">
 <h1> OLViT: Multi-Modal State Tracking via Attention-Based Embeddings for Video-Grounded Dialog  </h1>
     
-**[Adnen Abdessaied][4], &nbsp; [Manuel von Hochmeister][5], &nbsp; [Andreas Bulling][6]** <br> <br>
-
+**[Adnen Abdessaied][4], &nbsp; [Manuel von Hochmeister][5], &nbsp; [Andreas Bulling][6]** <br>  <br>
 **Submitted to COLING 2024**, Turin, Italy <img src="misc/italy.png" width="3%" align="center"> <br>
 **[[Paper][7]]**
-
 ----------------
 <img src="misc/teaser.png" width="40%" align="middle"><br><br>
 

@@ -9,6 +9,17 @@
 
 </div>
 
+# Citation 
+If you find our code useful or use it in your own projects, please cite our paper:
+```
+@InProceedings{abdessaied24_coling,
+    author    = {Abdessaied, Adnen and Hochmeister, Manuel and Bulling, Andreas},
+    title     = {{OLViT: Multi-Modal State Tracking via Attention-Based Embeddings for Video-Grounded Dialog}},
+    booktitle = {Proceedings of the International Conference on Computational Linguistics (COLING)},
+    month     = {May},
+    year      = {2024},
+}
+```
 # Table of Contents
 * [Setup and Dependencies](#Setup-and-Dependencies)
 * [Download Data](#Download-Data)

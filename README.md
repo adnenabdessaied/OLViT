@@ -98,4 +98,4 @@ Our work relied on the codebases of [DVD][2] and [SIMMC][3]. Thanks to the autho
 [4]: https://adnenabdessaied.de
 [5]: https://www.linkedin.com/in/manuel-von-hochmeister-285416202/
 [6]: https://www.perceptualui.org/people/bulling/
-[7]: https://drive.google.com/file/d/1sDFfGpQ9E9NahT5gw8UjknWt3sNdxM7p/view?usp=sharing
+[7]: https://arxiv.org/abs/2402.13146
